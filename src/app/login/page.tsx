@@ -3,7 +3,7 @@ import { Card } from "primereact/card";
 import { InputText } from 'primereact/inputtext';
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-        
+import { Button } from "primereact/button";
         
 interface User{
     name:string;
@@ -29,7 +29,7 @@ export default function Login(){
     return(
         <div className="flex justify-center items-center min-h-screen">
             <Card 
-            className="w-[320px] min-h-72 shadow-lg rounded-lg"
+            className="w-[320px] min-h-80 shadow-lg rounded-lg"
             title={<div className="flex justify-center items-center h-10 text-lg font-semibold rounded-t-lg ">登入</div>}>
                 <div >
                     <form className="flex flex-col gap-4">
@@ -52,6 +52,7 @@ export default function Login(){
                             <a href="../findACC">忘記帳號與密碼</a>
                             <a href="../register">註冊新帳號</a>
                         </div>
+                        <Button></Button>
                     </form>
                 </div>
             </Card>
