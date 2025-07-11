@@ -37,12 +37,17 @@ export default function Login(){
                         <InputText 
                         id="acc"
                         className="w-full pl-0.5 pr-0.5 rounded-lg"
-                        placeholder="account" value={person.account}/>
+                        placeholder="account"
+                        value={person.account}
+                        onChange={(e)=>setPerson({...person,account:e.target.value})}/>
                         <label htmlFor="password">密碼</label>
                         <InputText 
                         id="password"
                         className="w-full pl-0.5 pr-0.5 rounded-lg"
-                        placeholder="password" value={person.password}/>
+                        placeholder="password" 
+                        value={person.password}
+                        onChange={(e)=>setPerson({...person,password:e.target.value})}
+                        />
                         <div className="flex flex-row items-center justify-between">
                             <a href="../findACC">忘記帳號與密碼</a>
                             <a href="../register">註冊新帳號</a>
