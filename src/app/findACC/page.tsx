@@ -10,11 +10,23 @@ export default function FindACC(){
     const [tel,setTel]=useState("");
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const form="phone:"+tel
-        alert(form);
-    }
+
+        const trimmedInput = tel.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const internationalPhoneRegex = /^\+?[0-9\s\-().]{7,20}$/;
+
+        if (emailRegex.test(trimmedInput)) {
+            alert(`您輸入的是「電子郵件」: ${trimmedInput}`);
+            setError(null);
+        } else if (internationalPhoneRegex.test(trimmedInput)) {
+            alert(`您輸入的是「電話號碼」: ${trimmedInput}`);
+            setError(null);
+        } else {
+            setError("請輸入有效的電話號碼或電子郵件");
+        }
+    };
     return(
         <div className="flex justify-center items-center min-h-screen">
                 <Card 
@@ -31,7 +43,7 @@ export default function FindACC(){
                                 onChange={(e)=>setTel(e.target.value)}/>
                             </div>
                             {error && <small className="text-red-500">{error}</small>}
-                            <Button className="flex items-center justify-center" type="submit">登入</Button>
+                            <Button className="flex items-center justify-center" type="submit">確認</Button>
                         </form>
                     </div>
                 </Card>
